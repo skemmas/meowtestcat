@@ -1,49 +1,1192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>meowtestcat | Live</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>$MEOW | The Most Unhinged Cat on Pump.fun</title>
+  <meta name="description" content="Born on Pump.fun. 1,000,000,000 supply. 0% tax. LP Burned. The raw neo-brutalist feline revolution on Solana." />
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+
+  <!-- Google Fonts: Space Grotesk, Bungee, Fredoka -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@600;700;800;900&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Bungee', 'cursive'],
+            heading: ['Fredoka', 'sans-serif'],
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              yellow: '#FFE600',
+              green: '#00FF66',
+              cyan: '#00F0FF',
+              pink: '#FF2E93',
+              orange: '#FF6B00',
+              dark: '#0A0A0A',
+            }
+          },
+          boxShadow: {
+            'brutal-sm': '3px 3px 0px #000',
+            'brutal': '5px 5px 0px #000',
+            'brutal-lg': '8px 8px 0px #000',
+            'brutal-xl': '12px 12px 0px #000',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            marqueeReverse: {
+              '0%': { transform: 'translateX(-50%)' },
+              '100%': { transform: 'translateX(0%)' },
+            },
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-3deg)' },
+              '50%': { transform: 'rotate(3deg)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          },
+          animation: {
+            'marquee': 'marquee 18s linear infinite',
+            'marquee-slow': 'marquee 26s linear infinite',
+            'marquee-reverse': 'marqueeReverse 20s linear infinite',
+            'wiggle': 'wiggle 1.5s ease-in-out infinite',
+            'float': 'float 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    /* Neo-brutalist utility base */
+    .brutal-card {
+      border: 4px solid #000;
+      box-shadow: 6px 6px 0px #000;
+      transition: all 0.15s ease-in-out;
+    }
+    .brutal-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 9px 9px 0px #000;
+    }
+    .brutal-btn {
+      border: 4px solid #000;
+      box-shadow: 5px 5px 0px #000;
+      transition: all 0.1s ease-in-out;
+      cursor: pointer;
+      user-select: none;
+    }
+    .brutal-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px #000;
+    }
+    .brutal-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0px #000;
+    }
+    .halftone-bg {
+      background-color: #FFE600;
+      background-image: radial-gradient(#000000 1.6px, transparent 1.6px);
+      background-size: 20px 20px;
+    }
+    .checker-bg {
+      background-image: linear-gradient(45deg, #000 25%, transparent 25%), 
+                        linear-gradient(-45deg, #000 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #000 75%), 
+                        linear-gradient(-45deg, transparent 75%, #000 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #00FF66;
+      border: 2px solid #000;
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-white min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
-  <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"></div>
-  
-  <header class="max-w-6xl mx-auto w-full px-6 py-8 flex justify-between items-center">
-    <div class="text-xl font-bold tracking-tight bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
-      MEOWTESTCAT
+
+<body class="bg-[#FFFDF0] text-black font-sans selection:bg-brand-green selection:text-black overflow-x-hidden min-h-screen">
+
+  <!-- TOP HAZARD MARQUEE -->
+  <div class="bg-black text-brand-yellow border-b-4 border-black py-2.5 overflow-hidden whitespace-nowrap select-none font-display text-sm md:text-base tracking-wider">
+    <div class="inline-flex animate-marquee">
+      <span class="mx-4 flex items-center gap-2">🚀 $MEOW ON PUMP.FUN</span>
+      <span class="mx-4 flex items-center gap-2">🐱 100% COMMUNITY CATNIP</span>
+      <span class="mx-4 flex items-center gap-2">🔥 0% TAX</span>
+      <span class="mx-4 flex items-center gap-2">💎 LP BURNED IN THE LITTERBOX</span>
+      <span class="mx-4 flex items-center gap-2">🐾 KING OF THE HILL SPEEDRUN</span>
+      <span class="mx-4 flex items-center gap-2">📈 1,000,000,000 TOTAL SUPPLY</span>
+      <span class="mx-4 flex items-center gap-2">⚡ SOLANA HIGH OCTANE FELINE</span>
+      <span class="mx-4 flex items-center gap-2">🚀 $MEOW ON PUMP.FUN</span>
+      <span class="mx-4 flex items-center gap-2">🐱 100% COMMUNITY CATNIP</span>
+      <span class="mx-4 flex items-center gap-2">🔥 0% TAX</span>
+      <span class="mx-4 flex items-center gap-2">💎 LP BURNED IN THE LITTERBOX</span>
+      <span class="mx-4 flex items-center gap-2">🐾 KING OF THE HILL SPEEDRUN</span>
+      <span class="mx-4 flex items-center gap-2">📈 1,000,000,000 TOTAL SUPPLY</span>
+      <span class="mx-4 flex items-center gap-2">⚡ SOLANA HIGH OCTANE FELINE</span>
     </div>
-    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-      Online on Vercel
-    </span>
+  </div>
+
+  <!-- STICKY BRUTAL HEADER -->
+  <header class="sticky top-0 z-50 bg-white border-b-4 border-black px-4 lg:px-8 py-3.5 shadow-brutal flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <!-- Animated Cat Avatar -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-12 h-12 bg-brand-yellow rounded-full border-4 border-black flex items-center justify-center text-2xl shadow-brutal-sm group-hover:rotate-12 transition-transform">
+          🐱
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display text-2xl tracking-wider text-black leading-none">$MEOW</span>
+          <span class="font-heading font-extrabold text-xs text-brand-orange leading-tight">PUMP.FUN ORIGINAL</span>
+        </div>
+      </a>
+      
+      <!-- Live Status Badge -->
+      <div class="hidden md:inline-flex items-center gap-2 bg-brand-green/25 border-2 border-black px-3 py-1 rounded-full text-xs font-heading font-black">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-green border border-black animate-ping"></span>
+        <span>BONDING CURVE: 78.4%</span>
+      </div>
+    </div>
+
+    <!-- Quick Navigation -->
+    <nav class="hidden lg:flex items-center gap-6 font-heading font-bold text-sm tracking-wide">
+      <a href="#about" class="hover:text-brand-orange hover:underline decoration-4 underline-offset-4 transition-colors">ABOUT</a>
+      <a href="#tokenomics" class="hover:text-brand-orange hover:underline decoration-4 underline-offset-4 transition-colors">TOKENOMICS</a>
+      <a href="#how-to-buy" class="hover:text-brand-orange hover:underline decoration-4 underline-offset-4 transition-colors">HOW TO BUY</a>
+      <a href="#memes" class="hover:text-brand-orange hover:underline decoration-4 underline-offset-4 transition-colors">MEME VAULT</a>
+      <a href="#soundboard" class="hover:text-brand-orange hover:underline decoration-4 underline-offset-4 transition-colors">SOUNDBOARD</a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-2.5">
+      <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" 
+         class="brutal-btn bg-brand-green hover:bg-[#20ff78] text-black font-display text-sm md:text-base px-4 md:px-5 py-2.5 rounded-none flex items-center gap-2">
+        <span>BUY NOW</span>
+        <span class="text-lg">🐾</span>
+      </a>
+    </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-6 py-20 text-center flex-1 flex flex-col items-center justify-center">
-    <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-6">
-      Built for <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">Instant Speed</span>.
-    </h1>
-    <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mb-10">
-      meowtestcat is deployed and connected. Rapid production pipeline verified.
-    </p>
-    <div class="flex gap-4">
-      <a href="#explore" class="px-6 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all shadow-lg shadow-cyan-500/20">
-        Get Started
-      </a>
-      <a href="https://github.com" target="_blank" class="px-6 py-3 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 transition-all">
-        View Source
-      </a>
+  <!-- HERO SECTION -->
+  <section class="relative halftone-bg border-b-4 border-black py-14 md:py-24 px-4 overflow-hidden">
+    <!-- Floating Background Stickers -->
+    <div class="absolute top-6 left-4 md:left-12 rotate-[-12deg] hidden sm:block z-0 pointer-events-none">
+      <div class="bg-brand-pink text-white font-display text-xs md:text-sm px-3 py-1.5 border-4 border-black shadow-brutal animate-wiggle">
+        🚨 NO SLEEP JUST PUMP!
+      </div>
     </div>
-  </main>
+    <div class="absolute top-10 right-4 md:right-14 rotate-[15deg] hidden sm:block z-0 pointer-events-none">
+      <div class="bg-brand-cyan text-black font-display text-xs md:text-sm px-3 py-1.5 border-4 border-black shadow-brutal animate-float">
+        👑 KING OF THE HILL 👑
+      </div>
+    </div>
 
-  <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-500">
-    &copy; 2026 meowtestcat. Generated with PumpSites.
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Column: Copy & Actions -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          
+          <!-- Live Pump Pill Badge -->
+          <div class="inline-flex items-center gap-2 bg-black text-brand-green border-4 border-black px-4 py-2 font-display text-xs md:text-sm tracking-wide shadow-brutal mb-6 rotate-[-1.5deg]">
+            <span class="w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
+            LIVE ON PUMP.FUN &bull; 100% FAIR LAUNCH
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] text-black mb-6">
+            THE MOST <br/>
+            <span class="bg-brand-pink text-white px-2 border-4 border-black inline-block shadow-brutal rotate-[-1deg] my-1">
+              UNHINGED
+            </span><br/>
+            CAT ON SOLANA.
+          </h1>
+
+          <!-- Tagline -->
+          <p class="font-heading font-bold text-lg sm:text-xl md:text-2xl text-black/90 max-w-xl mb-8 leading-snug">
+            Zero team tokens. Zero tax. 1 Billion $MEOW. Pumping relentlessly until the entire internet knocks the vase off the table.
+          </p>
+
+          <!-- Chunky CTA Buttons -->
+          <div class="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+            <a href="https://pump.fun" target="_blank" rel="noopener noreferrer"
+               class="brutal-btn bg-brand-green hover:bg-[#1cf775] text-black font-display text-lg sm:text-xl px-7 py-4 flex items-center gap-3">
+              <span>🚀 BUY ON PUMP.FUN</span>
+            </a>
+            
+            <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer"
+               class="brutal-btn bg-brand-cyan hover:bg-[#43f4ff] text-black font-display text-lg sm:text-xl px-6 py-4 flex items-center gap-2">
+              <span>📊 DEXSCREENER</span>
+            </a>
+
+            <div class="flex gap-2">
+              <a href="https://t.me" target="_blank" rel="noopener noreferrer"
+                 title="Telegram"
+                 class="brutal-btn bg-[#229ED9] hover:bg-[#3db3ec] text-white p-4 flex items-center justify-center text-xl font-bold">
+                ✈️
+              </a>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+                 title="X / Twitter"
+                 class="brutal-btn bg-black hover:bg-neutral-800 text-white p-4 flex items-center justify-center text-xl font-bold">
+                𝕏
+              </a>
+            </div>
+          </div>
+
+          <!-- 1-CLICK CA COPY BOX -->
+          <div class="bg-white border-4 border-black p-4 md:p-5 shadow-brutal max-w-xl mx-auto lg:mx-0">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-display text-xs tracking-wider text-black flex items-center gap-1.5">
+                <span>⚡</span> CONTRACT ADDRESS (SOLANA)
+              </span>
+              <span class="font-heading font-extrabold text-[11px] bg-brand-yellow px-2 py-0.5 border-2 border-black">
+                CLICK TO COPY
+              </span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2.5 items-stretch">
+              <div class="bg-[#F4F4F0] border-2 border-black px-3.5 py-2.5 font-mono text-xs sm:text-sm font-bold text-black break-all select-all flex-1 flex items-center" id="ca-text">
+                7Meow9Pv4KzXfEw2gS7qY9aPumpFunSolanaMEOW1111
+              </div>
+              <button id="copy-btn" onclick="copyCA()" 
+                      class="brutal-btn bg-brand-yellow hover:bg-[#ffed33] active:bg-brand-green font-display text-sm px-6 py-3 shrink-0 flex items-center justify-center gap-2">
+                <span id="copy-icon">📋</span>
+                <span id="copy-label">COPY CA</span>
+              </button>
+            </div>
+            
+            <div id="copy-toast" class="hidden mt-2 py-1.5 px-3 bg-brand-green text-black border-2 border-black font-heading font-black text-xs text-center animate-bounce">
+              🐾 MEOW! CONTRACT ADDRESS COPIED TO CLIPBOARD! 🐾
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Unhinged Cat Meme Graphic -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Background brutal badge circle -->
+            <div class="absolute inset-0 bg-brand-cyan border-4 border-black shadow-brutal-xl rounded-3xl rotate-3"></div>
+            
+            <!-- Foreground Meme Card -->
+            <div class="relative bg-white border-4 border-black p-6 rounded-2xl shadow-brutal rotate-[-2deg] hover:rotate-0 transition-transform">
+              
+              <!-- Card Header -->
+              <div class="flex justify-between items-center border-b-4 border-black pb-3 mb-4">
+                <div class="flex items-center gap-2">
+                  <span class="w-3.5 h-3.5 rounded-full bg-red-500 border-2 border-black"></span>
+                  <span class="w-3.5 h-3.5 rounded-full bg-brand-yellow border-2 border-black"></span>
+                  <span class="w-3.5 h-3.5 rounded-full bg-brand-green border-2 border-black"></span>
+                </div>
+                <span class="font-display text-xs bg-black text-white px-2 py-0.5">FIG. 1: THE FOUNDER</span>
+              </div>
+
+              <!-- Unhinged Cat SVG Illustration -->
+              <div class="relative w-full aspect-square bg-[#FFE600] border-4 border-black flex items-center justify-center overflow-hidden cursor-pointer group select-none" id="cat-mascot" onclick="triggerMeowHero()">
+                
+                <!-- Laser Eyes overlay (toggled on click) -->
+                <div id="laser-beams" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity z-20">
+                  <div class="absolute top-[38%] left-[34%] w-48 h-3 bg-red-600 rotate-[25deg] shadow-[0_0_15px_#ff0000]"></div>
+                  <div class="absolute top-[38%] right-[32%] w-48 h-3 bg-red-600 rotate-[-25deg] shadow-[0_0_15px_#ff0000]"></div>
+                </div>
+
+                <!-- Custom Vector Pop-Art Cat -->
+                <svg viewBox="0 0 320 320" class="w-4/5 h-4/5 transition-transform group-hover:scale-105 duration-200">
+                  <!-- Cat Ears -->
+                  <polygon points="60,110 30,20 120,70" fill="#FF8A00" stroke="#000" stroke-width="8" stroke-linejoin="round"/>
+                  <polygon points="70,100 45,35 110,70" fill="#FF2E93" stroke="#000" stroke-width="4"/>
+                  
+                  <polygon points="260,110 290,20 200,70" fill="#FF8A00" stroke="#000" stroke-width="8" stroke-linejoin="round"/>
+                  <polygon points="250,100 275,35 210,70" fill="#FF2E93" stroke="#000" stroke-width="4"/>
+                  
+                  <!-- Cat Head -->
+                  <ellipse cx="160" cy="160" rx="100" ry="85" fill="#FFA500" stroke="#000" stroke-width="9"/>
+                  
+                  <!-- Chubby Cheeks -->
+                  <circle cx="110" cy="190" r="30" fill="#FFD200" stroke="#000" stroke-width="5"/>
+                  <circle cx="210" cy="190" r="30" fill="#FFD200" stroke="#000" stroke-width="5"/>
+                  
+                  <!-- Eyes -->
+                  <ellipse cx="115" cy="135" rx="22" ry="26" fill="#FFF" stroke="#000" stroke-width="7"/>
+                  <ellipse cx="205" cy="135" rx="22" ry="26" fill="#FFF" stroke="#000" stroke-width="7"/>
+                  
+                  <!-- Pupils (Crazy Degen Eyes) -->
+                  <ellipse cx="120" cy="135" rx="10" ry="16" fill="#000"/>
+                  <ellipse cx="200" cy="135" rx="10" ry="16" fill="#000"/>
+                  <circle cx="116" cy="128" r="4" fill="#FFF"/>
+                  <circle cx="196" cy="128" r="4" fill="#FFF"/>
+                  
+                  <!-- Thug Life Sunglasses Toggle Layer -->
+                  <g id="sunglasses" class="group-hover:translate-y-1 transition-transform">
+                    <rect x="75" y="115" width="75" height="42" rx="4" fill="#000" stroke="#FFF" stroke-width="3"/>
+                    <rect x="170" y="115" width="75" height="42" rx="4" fill="#000" stroke="#FFF" stroke-width="3"/>
+                    <rect x="145" y="125" width="30" height="10" fill="#000" stroke="#FFF" stroke-width="3"/>
+                    <line x1="85" y1="125" x2="140" y2="125" stroke="#00FF66" stroke-width="4"/>
+                    <line x1="180" y1="125" x2="235" y2="125" stroke="#00FF66" stroke-width="4"/>
+                  </g>
+
+                  <!-- Cute/Angry Nose -->
+                  <polygon points="160,175 148,162 172,162" fill="#FF007A" stroke="#000" stroke-width="5"/>
+                  
+                  <!-- Mouth Screaming / Roaring -->
+                  <path d="M 140 185 Q 160 215 180 185" fill="#B30000" stroke="#000" stroke-width="6"/>
+                  <!-- Tiny Vampire Cat Fangs -->
+                  <polygon points="144,185 149,197 154,185" fill="#FFF" stroke="#000" stroke-width="2"/>
+                  <polygon points="166,185 171,197 176,185" fill="#FFF" stroke="#000" stroke-width="2"/>
+
+                  <!-- Whiskers -->
+                  <line x1="60" y1="175" x2="10" y2="165" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+                  <line x1="60" y1="190" x2="15" y2="195" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+                  <line x1="260" y1="175" x2="310" y2="165" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+                  <line x1="260" y1="190" x2="305" y2="195" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+
+                  <!-- Gold Cuban Chain & Solana Medallion -->
+                  <path d="M 100 240 Q 160 280 220 240" fill="none" stroke="#FFD700" stroke-width="14" stroke-linecap="round"/>
+                  <circle cx="160" cy="270" r="22" fill="#FFD700" stroke="#000" stroke-width="5"/>
+                  <text x="160" y="278" font-size="20" font-weight="900" text-anchor="middle" fill="#000" font-family="Bungee">◎</text>
+                </svg>
+
+                <!-- Click hint sticker -->
+                <div class="absolute bottom-2 bg-black text-brand-green text-[10px] font-heading font-black px-2.5 py-1 border-2 border-white uppercase shadow-brutal-sm">
+                  👇 CLICK FOR LASER MEOW
+                </div>
+              </div>
+
+              <!-- Card Bottom Info -->
+              <div class="mt-4 flex justify-between items-center font-heading font-bold text-sm">
+                <div>
+                  <div class="text-neutral-500 text-xs">STATUS</div>
+                  <div class="text-brand-orange font-extrabold flex items-center gap-1">
+                    <span>🔥</span> HYPER-ACTIVE
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-neutral-500 text-xs">DIET</div>
+                  <div class="font-extrabold">SOLANA & CATNIP</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Mini Floating Badge -->
+            <div class="absolute -bottom-5 -right-3 bg-brand-green text-black border-4 border-black px-4 py-2 font-display text-sm shadow-brutal rotate-[6deg]">
+              100% PUMPED 🚀
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BONDING CURVE MINI TICKER WIDGET -->
+      <div class="mt-12 bg-white border-4 border-black p-5 shadow-brutal-lg">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+          <div class="flex items-center gap-2 font-display text-sm sm:text-base">
+            <span class="w-3 h-3 bg-brand-green rounded-full border border-black animate-pulse"></span>
+            <span>BONDING CURVE MIGRATION TO RAYDIUM</span>
+          </div>
+          <div class="font-heading font-black text-sm bg-brand-yellow px-2.5 py-1 border-2 border-black">
+            66.6 SOL / 85 SOL (78.4% GRADUATED)
+          </div>
+        </div>
+
+        <!-- Progress Bar Container -->
+        <div class="w-full h-8 bg-neutral-200 border-4 border-black relative overflow-hidden">
+          <div class="h-full bg-brand-green border-r-4 border-black transition-all duration-500 relative" style="width: 78.4%;">
+            <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(0,0,0,0.15)_25%,transparent_25%,transparent_50%,rgba(0,0,0,0.15)_50%,rgba(0,0,0,0.15)_75%,transparent_75%,transparent)] [background-size:24px_24px] animate-marquee"></div>
+          </div>
+          <span class="absolute inset-0 flex items-center justify-center font-display text-xs sm:text-sm tracking-wider text-black pointer-events-none">
+            78.4% COMPLETE &bull; RAYDIUM MIGRATION & LP BURN AT 85 SOL
+          </span>
+        </div>
+
+        <div class="mt-3 flex flex-wrap justify-between text-xs font-heading font-extrabold text-neutral-700">
+          <span>✨ Initial Dev Allocation: 0%</span>
+          <span>🔒 Liquidity Automatically Deposited & Burned</span>
+          <span>🛡 Fair Launch on Pump.fun</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MID MARQUEE (REVERSE) -->
+  <div class="bg-brand-green text-black border-b-4 border-black py-2.5 overflow-hidden whitespace-nowrap select-none font-display text-sm md:text-base tracking-wider">
+    <div class="inline-flex animate-marquee-reverse">
+      <span class="mx-6">🐱 NO ROADMAP &bull; NO PROMISES &bull; ONLY MEOWS</span>
+      <span class="mx-6">🐾 TICKER: $MEOW &bull; ZERO TAX FOREVER</span>
+      <span class="mx-6">💥 THE COIN SHE TOLD YOU NOT TO WORRY ABOUT</span>
+      <span class="mx-6">🔥 SENDING IT HIGHER THAN THE TOP SHELF</span>
+      <span class="mx-6">🐱 NO ROADMAP &bull; NO PROMISES &bull; ONLY MEOWS</span>
+      <span class="mx-6">🐾 TICKER: $MEOW &bull; ZERO TAX FOREVER</span>
+      <span class="mx-6">💥 THE COIN SHE TOLD YOU NOT TO WORRY ABOUT</span>
+      <span class="mx-6">🔥 SENDING IT HIGHER THAN THE TOP SHELF</span>
+    </div>
+  </div>
+
+  <!-- TOKENOMICS SECTION -->
+  <section id="tokenomics" class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <div class="inline-block bg-brand-yellow px-4 py-1.5 border-4 border-black font-display text-xs md:text-sm shadow-brutal mb-3 rotate-[-1deg]">
+        THE SACRED CAT-O-NOMICS
+      </div>
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-black">
+        TOKENOMICS BUILT FOR GIGACHADS
+      </h2>
+      <p class="font-heading font-bold text-neutral-600 text-lg sm:text-xl max-w-xl mx-auto mt-3">
+        Zero venture capitalists. Zero insider allocations. Zero nonsense. Pure mathematical feline perfection.
+      </p>
+    </div>
+
+    <!-- 4 Neo-Brutalist Tokenomics Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Card 1: Total Supply -->
+      <div class="brutal-card bg-[#FFF] p-6 text-center flex flex-col justify-between">
+        <div>
+          <div class="w-16 h-16 bg-brand-yellow rounded-2xl border-4 border-black shadow-brutal-sm mx-auto flex items-center justify-center text-3xl mb-4">
+            🪙
+          </div>
+          <span class="font-heading font-extrabold text-xs uppercase bg-black text-white px-2 py-0.5 inline-block mb-2">
+            TOTAL SUPPLY
+          </span>
+          <div class="font-display text-3xl sm:text-4xl text-black break-words my-2">
+            1,000,000,000
+          </div>
+        </div>
+        <p class="font-heading font-bold text-sm text-neutral-600 border-t-2 border-black pt-3 mt-4">
+          One billion tokens. Never more. Never less. Mint authority revoked forever.
+        </p>
+      </div>
+
+      <!-- Card 2: Zero Tax -->
+      <div class="brutal-card bg-brand-green/20 p-6 text-center flex flex-col justify-between">
+        <div>
+          <div class="w-16 h-16 bg-brand-green rounded-2xl border-4 border-black shadow-brutal-sm mx-auto flex items-center justify-center text-3xl mb-4">
+            🚫
+          </div>
+          <span class="font-heading font-extrabold text-xs uppercase bg-black text-white px-2 py-0.5 inline-block mb-2">
+            TAX POLICY
+          </span>
+          <div class="font-display text-4xl sm:text-5xl text-black my-2">
+            0% / 0%
+          </div>
+        </div>
+        <p class="font-heading font-bold text-sm text-neutral-600 border-t-2 border-black pt-3 mt-4">
+          0% Buy Tax. 0% Sell Tax. Zero hidden fees. You keep every single SOL you earn.
+        </p>
+      </div>
+
+      <!-- Card 3: LP Burned -->
+      <div class="brutal-card bg-brand-pink/20 p-6 text-center flex flex-col justify-between">
+        <div>
+          <div class="w-16 h-16 bg-brand-pink rounded-2xl border-4 border-black shadow-brutal-sm mx-auto flex items-center justify-center text-3xl mb-4">
+            🔥
+          </div>
+          <span class="font-heading font-extrabold text-xs uppercase bg-black text-white px-2 py-0.5 inline-block mb-2">
+            LIQUIDITY
+          </span>
+          <div class="font-display text-4xl sm:text-5xl text-black my-2">
+            LP BURNED
+          </div>
+        </div>
+        <p class="font-heading font-bold text-sm text-neutral-600 border-t-2 border-black pt-3 mt-4">
+          Raydium LP tokens are incinerated automatically upon bonding curve graduation.
+        </p>
+      </div>
+
+      <!-- Card 4: 100% Cat -->
+      <div class="brutal-card bg-brand-cyan/25 p-6 text-center flex flex-col justify-between">
+        <div>
+          <div class="w-16 h-16 bg-brand-cyan rounded-2xl border-4 border-black shadow-brutal-sm mx-auto flex items-center justify-center text-3xl mb-4">
+            🐱
+          </div>
+          <span class="font-heading font-extrabold text-xs uppercase bg-black text-white px-2 py-0.5 inline-block mb-2">
+            COMMUNITY RATIO
+          </span>
+          <div class="font-display text-4xl sm:text-5xl text-black my-2">
+            100% CAT
+          </div>
+        </div>
+        <p class="font-heading font-bold text-sm text-neutral-600 border-t-2 border-black pt-3 mt-4">
+          0% VC. 0% presale. 100% community-owned chaotic felines running free.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Tokenomics Visual Distribution Bar -->
+    <div class="mt-12 bg-white border-4 border-black p-6 shadow-brutal">
+      <div class="font-display text-lg mb-3">TOKEN ALLOCATION BREAKDOWN</div>
+      <div class="h-10 w-full flex border-4 border-black overflow-hidden font-heading font-black text-xs md:text-sm">
+        <div class="bg-brand-green flex items-center justify-center text-black border-r-2 border-black" style="width: 80%;">
+          80% PUMP.FUN BONDING CURVE
+        </div>
+        <div class="bg-brand-yellow flex items-center justify-center text-black" style="width: 20%;">
+          20% RAYDIUM LP
+        </div>
+      </div>
+      <div class="flex justify-between items-center mt-3 text-xs font-heading font-bold text-neutral-600">
+        <span>🟢 Fair Launch Community: 800,000,000 $MEOW</span>
+        <span>🟡 Raydium Graduation LP: 200,000,000 $MEOW</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO PUMP SECTION -->
+  <section id="how-to-buy" class="bg-[#FFF8CC] border-y-4 border-black py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="inline-block bg-brand-cyan px-4 py-1.5 border-4 border-black font-display text-xs md:text-sm shadow-brutal mb-3 rotate-[1deg]">
+          FAST GUIDE FOR DEGENS
+        </div>
+        <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-black">
+          HOW TO PUMP IN 3 SIMPLE STEPS
+        </h2>
+        <p class="font-heading font-bold text-neutral-700 text-lg sm:text-xl max-w-lg mx-auto mt-3">
+          Even your grandmother's cat can figure this out in 45 seconds flat.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Step 1 -->
+        <div class="brutal-card bg-white p-7 relative">
+          <div class="absolute -top-6 -left-4 bg-brand-yellow text-black border-4 border-black font-display text-2xl w-14 h-14 flex items-center justify-center shadow-brutal-sm rotate-[-8deg]">
+            01
+          </div>
+          <div class="mt-4 mb-4 text-4xl">👻</div>
+          <h3 class="font-display text-2xl text-black mb-3">GET A PHANTOM WALLET</h3>
+          <p class="font-heading font-bold text-neutral-600 text-base leading-relaxed">
+            Download the <a href="https://phantom.app" target="_blank" class="underline text-brand-orange">Phantom</a> or Solflare app on your phone or browser extension. Write down your secret recovery phrase. Never give it to anyone (not even a cat).
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="brutal-card bg-white p-7 relative">
+          <div class="absolute -top-6 -left-4 bg-brand-pink text-white border-4 border-black font-display text-2xl w-14 h-14 flex items-center justify-center shadow-brutal-sm rotate-[5deg]">
+            02
+          </div>
+          <div class="mt-4 mb-4 text-4xl">⚡</div>
+          <h3 class="font-display text-2xl text-black mb-3">GRAB SOME $SOL</h3>
+          <p class="font-heading font-bold text-neutral-600 text-base leading-relaxed">
+            Buy Solana (SOL) on Binance, Coinbase, Bybit, Kraken, or right inside Phantom wallet. Send it straight into your Solana wallet address.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="brutal-card bg-white p-7 relative">
+          <div class="absolute -top-6 -left-4 bg-brand-green text-black border-4 border-black font-display text-2xl w-14 h-14 flex items-center justify-center shadow-brutal-sm rotate-[-5deg]">
+            03
+          </div>
+          <div class="mt-4 mb-4 text-4xl">🚀</div>
+          <h3 class="font-display text-2xl text-black mb-3">APE ON PUMP.FUN</h3>
+          <p class="font-heading font-bold text-neutral-600 text-base leading-relaxed">
+            Head over to <a href="https://pump.fun" target="_blank" class="underline text-brand-green font-extrabold bg-black px-1 text-white">Pump.fun</a>, paste the $MEOW contract address, click <strong>BUY</strong>, and watch the green candles take flight!
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Quick Action Pill in How to Buy -->
+      <div class="mt-14 text-center">
+        <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" 
+           class="brutal-btn inline-flex items-center gap-3 bg-brand-green hover:bg-[#2fff80] text-black font-display text-xl sm:text-2xl px-10 py-5">
+          <span>🚀 GO STRAIGHT TO PUMP.FUN</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEME GALLERY / HALL OF FAME STICKERS -->
+  <section id="memes" class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <div class="inline-block bg-brand-pink text-white px-4 py-1.5 border-4 border-black font-display text-xs md:text-sm shadow-brutal mb-3 rotate-[-2deg]">
+        INTERNET ARTIFACTS
+      </div>
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-black">
+        MEME HALL OF FAME
+      </h2>
+      <p class="font-heading font-bold text-neutral-600 text-lg sm:text-xl max-w-xl mx-auto mt-3">
+        High-grade weaponized feline internet culture. Click any card to broadcast audio meows!
+      </p>
+    </div>
+
+    <!-- Meme Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Meme 1 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer group" onclick="playSynthSound('meow')">
+        <div class="relative bg-brand-yellow border-4 border-black aspect-video flex flex-col items-center justify-center p-4 overflow-hidden mb-4">
+          <div class="text-6xl group-hover:scale-125 transition-transform duration-200">🙀</div>
+          <div class="absolute bottom-2 font-display text-xs bg-black text-white px-2 py-0.5 border border-white">
+            "THE 3 AM GREEN CANDLE"
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-display text-base text-black">STAIRING AT CHART</span>
+          <span class="font-heading font-extrabold text-xs bg-brand-green px-2 py-0.5 border-2 border-black">#01</span>
+        </div>
+        <p class="font-heading font-semibold text-xs text-neutral-500 mt-1">Pupils dilated 400%. Zero sleep. Only green dildos.</p>
+      </div>
+
+      <!-- Meme 2 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer group" onclick="playSynthSound('lambo')">
+        <div class="relative bg-brand-cyan border-4 border-black aspect-video flex flex-col items-center justify-center p-4 overflow-hidden mb-4">
+          <div class="text-6xl group-hover:scale-125 transition-transform duration-200">😼</div>
+          <div class="absolute bottom-2 font-display text-xs bg-black text-white px-2 py-0.5 border border-white">
+            "DEV SOLD AT $10K MC"
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-display text-base text-black">JEET DEV OBLITERATED</span>
+          <span class="font-heading font-extrabold text-xs bg-brand-yellow px-2 py-0.5 border-2 border-black">#02</span>
+        </div>
+        <p class="font-heading font-semibold text-xs text-neutral-500 mt-1">Dev took $80 profit. Cat community pushed it to 50M.</p>
+      </div>
+
+      <!-- Meme 3 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer group" onclick="playSynthSound('hiss')">
+        <div class="relative bg-brand-pink border-4 border-black aspect-video flex flex-col items-center justify-center p-4 overflow-hidden mb-4">
+          <div class="text-6xl group-hover:scale-125 transition-transform duration-200">😾</div>
+          <div class="absolute bottom-2 font-display text-xs bg-black text-white px-2 py-0.5 border border-white">
+            "KNOCKING SOL OFF TABLE"
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-display text-base text-black">NO RUGS ALLOWED</span>
+          <span class="font-heading font-extrabold text-xs bg-brand-pink text-white px-2 py-0.5 border-2 border-black">#03</span>
+        </div>
+        <p class="font-heading font-semibold text-xs text-neutral-500 mt-1">Looking you dead in the eyes while pressing the Buy button.</p>
+      </div>
+
+      <!-- Meme 4 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer group" onclick="playSynthSound('alarm')">
+        <div class="relative bg-brand-green border-4 border-black aspect-video flex flex-col items-center justify-center p-4 overflow-hidden mb-4">
+          <div class="text-6xl group-hover:scale-125 transition-transform duration-200">🚀</div>
+          <div class="absolute bottom-2 font-display text-xs bg-black text-white px-2 py-0.5 border border-white">
+            "BONDING CURVE DESTROYER"
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-display text-base text-black">RAYDIUM EXPRESS</span>
+          <span class="font-heading font-extrabold text-xs bg-black text-white px-2 py-0.5 border-2 border-black">#04</span>
+        </div>
+        <p class="font-heading font-semibold text-xs text-neutral-500 mt-1">Direct flight to Raydium. No layovers. In-flight catnip served.</p>
+      </div>
+
+      <!-- Meme 5 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer group" onclick="playSynthSound('purr')">
+        <div class="relative bg-[#FF8A00] border-4 border-black aspect-video flex flex-col items-center justify-center p-4 overflow-hidden mb-4">
+          <div class="text-6xl group-hover:scale-125 transition-transform duration-200">💎</div>
+          <div class="absolute bottom-2 font-display text-xs bg-black text-white px-2 py-0.5 border border-white">
+            "DIAMOND PAWS FOREVER"
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-display text-base text-black">UNSHAKEABLE FELINE</span>
+          <span class="font-heading font-extrabold text-xs bg-brand-cyan px-2 py-0.5 border-2 border-black">#05</span>
+        </div>
+        <p class="font-heading font-semibold text-xs text-neutral-500 mt-1">Claws physically welded to the Solana blockchain.</p>
+      </div>
+
+      <!-- Meme 6 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer group" onclick="playSynthSound('meow')">
+        <div class="relative bg-[#9333EA] border-4 border-black aspect-video flex flex-col items-center justify-center p-4 overflow-hidden mb-4">
+          <div class="text-6xl group-hover:scale-125 transition-transform duration-200">👑</div>
+          <div class="absolute bottom-2 font-display text-xs bg-black text-white px-2 py-0.5 border border-white">
+            "KING OF THE HILL"
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-display text-base text-black">CROWN CLAIMED</span>
+          <span class="font-heading font-extrabold text-xs bg-brand-yellow px-2 py-0.5 border-2 border-black">#06</span>
+        </div>
+        <p class="font-heading font-semibold text-xs text-neutral-500 mt-1">Sitting atop Pump.fun frontpage like a velvet throne.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE CAT SOUNDBOARD & BAG CALCULATOR -->
+  <section id="soundboard" class="bg-black text-white border-y-4 border-black py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left: Neo-Brutalist Interactive Soundboard -->
+        <div class="bg-brand-yellow text-black border-4 border-white p-6 sm:p-8 shadow-[8px_8px_0px_#FFF]">
+          <div class="flex items-center justify-between mb-4 border-b-4 border-black pb-3">
+            <h3 class="font-display text-2xl sm:text-3xl">🐱 MEOW SOUNDBOARD</h3>
+            <span class="font-heading font-black text-xs bg-brand-pink text-white px-2.5 py-1 border-2 border-black animate-pulse">
+              LIVE WEBAUDIO SYNTH
+            </span>
+          </div>
+          <p class="font-heading font-bold text-sm text-neutral-800 mb-6">
+            Synthesized audio generators tuned to maximum degen resonance. Hit the buttons to test your speakers!
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <button onclick="playSynthSound('meow')" class="brutal-btn bg-white hover:bg-neutral-100 p-3.5 text-center font-display text-xs sm:text-sm">
+              <div class="text-2xl mb-1">🐾</div>
+              CUTE MEOW
+            </button>
+            <button onclick="playSynthSound('hiss')" class="brutal-btn bg-brand-pink text-white hover:bg-[#ff1f8b] p-3.5 text-center font-display text-xs sm:text-sm">
+              <div class="text-2xl mb-1">😾</div>
+              ANGRY HISS
+            </button>
+            <button onclick="playSynthSound('purr')" class="brutal-btn bg-brand-green text-black hover:bg-[#1cf775] p-3.5 text-center font-display text-xs sm:text-sm">
+              <div class="text-2xl mb-1">😺</div>
+              VIBRATING PURR
+            </button>
+            <button onclick="playSynthSound('lambo')" class="brutal-btn bg-brand-cyan text-black hover:bg-[#34f0fd] p-3.5 text-center font-display text-xs sm:text-sm">
+              <div class="text-2xl mb-1">🏎️</div>
+              LAMBO V12
+            </button>
+            <button onclick="playSynthSound('alarm')" class="brutal-btn bg-red-500 text-white hover:bg-red-600 p-3.5 text-center font-display text-xs sm:text-sm">
+              <div class="text-2xl mb-1">🚨</div>
+              PUMP ALARM
+            </button>
+            <button onclick="playSynthSound('cha-ching')" class="brutal-btn bg-black text-brand-green hover:bg-neutral-900 p-3.5 text-center font-display text-xs sm:text-sm">
+              <div class="text-2xl mb-1">💰</div>
+              CHA-CHING
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: $MEOW Bag Calculator -->
+        <div class="bg-white text-black border-4 border-white p-6 sm:p-8 shadow-[8px_8px_0px_#00FF66]">
+          <div class="flex items-center justify-between mb-4 border-b-4 border-black pb-3">
+            <h3 class="font-display text-2xl sm:text-3xl">🧮 BAG ESTIMATOR</h3>
+            <span class="font-heading font-black text-xs bg-brand-green px-2.5 py-1 border-2 border-black">
+              INSTANT MATH
+            </span>
+          </div>
+
+          <p class="font-heading font-bold text-sm text-neutral-600 mb-6">
+            Enter your SOL amount to calculate your $MEOW stack and estimated catnip purchasing power:
+          </p>
+
+          <div class="space-y-4">
+            <div>
+              <label class="font-display text-xs block mb-1">SOL INVESTED:</label>
+              <div class="flex items-center border-4 border-black bg-[#F4F4F0] px-4 py-2">
+                <span class="font-display text-xl mr-2">◎</span>
+                <input type="number" id="sol-calc-input" value="1.5" step="0.1" min="0.01" 
+                       class="w-full bg-transparent font-mono text-xl font-bold focus:outline-none"
+                       oninput="calculateBag()">
+              </div>
+            </div>
+
+            <!-- Result Box -->
+            <div class="bg-brand-green/20 border-4 border-black p-4 space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="font-heading font-bold text-sm">YOU RECEIVE APPROX:</span>
+                <span id="meow-tokens-calc" class="font-display text-xl text-black">17,647,058 $MEOW</span>
+              </div>
+              <div class="flex justify-between items-center text-xs font-heading font-bold text-neutral-600 border-t border-black/30 pt-2">
+                <span>CAN BUY EQUIVALENT OF:</span>
+                <span id="catnip-calc" class="text-brand-orange font-black">8,823 Cans of Fancy Feast 🐟</span>
+              </div>
+            </div>
+
+            <a href="https://pump.fun" target="_blank" rel="noopener noreferrer"
+               class="brutal-btn block text-center bg-brand-green hover:bg-[#1ef977] text-black font-display text-base py-3.5">
+              CONFIRM ON PUMP.FUN 🚀
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQS (NEO-BRUTALIST ACCORDION) -->
+  <section class="py-20 px-4 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="inline-block bg-brand-green text-black px-4 py-1.5 border-4 border-black font-display text-xs md:text-sm shadow-brutal mb-3 rotate-[1deg]">
+        FREQUENTLY CLAWED QUESTIONS
+      </div>
+      <h2 class="font-display text-4xl sm:text-5xl text-black">
+        WHY $MEOW? WHY NOW?
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      
+      <!-- FAQ 1 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer" onclick="toggleFaq('faq-1')">
+        <div class="flex justify-between items-center font-display text-lg sm:text-xl">
+          <span>WHAT IS $MEOW?</span>
+          <span id="faq-1-icon" class="text-2xl font-bold">+</span>
+        </div>
+        <div id="faq-1" class="hidden mt-3 font-heading font-bold text-neutral-700 text-sm sm:text-base border-t-2 border-black pt-3">
+          $MEOW is an authentic, unhinged feline memecoin born on Pump.fun. No utility promises, no pretentious AI roadmaps, just raw community-driven fun and laser-focused pump dynamics on the Solana blockchain.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer" onclick="toggleFaq('faq-2')">
+        <div class="flex justify-between items-center font-display text-lg sm:text-xl">
+          <span>IS THE DEV GOING TO DUMP?</span>
+          <span id="faq-2-icon" class="text-2xl font-bold">+</span>
+        </div>
+        <div id="faq-2" class="hidden mt-3 font-heading font-bold text-neutral-700 text-sm sm:text-base border-t-2 border-black pt-3">
+          The dev bought the same bonding curve as everybody else on Pump.fun with zero team pre-mine. The contract ownership is completely renounced, and the liquidity pool automatically burns upon reaching the bonding curve target.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer" onclick="toggleFaq('faq-3')">
+        <div class="flex justify-between items-center font-display text-lg sm:text-xl">
+          <span>WHEN RAYDIUM MIGRATION?</span>
+          <span id="faq-3-icon" class="text-2xl font-bold">+</span>
+        </div>
+        <div id="faq-3" class="hidden mt-3 font-heading font-bold text-neutral-700 text-sm sm:text-base border-t-2 border-black pt-3">
+          As soon as the Pump.fun bonding curve reaches 85 SOL (approximately $69,000 market cap), all liquidity is seamlessly transferred to Raydium and burned forever.
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="brutal-card bg-white p-5 cursor-pointer" onclick="toggleFaq('faq-4')">
+        <div class="flex justify-between items-center font-display text-lg sm:text-xl">
+          <span>HOW DO I GET MORE CATNIP?</span>
+          <span id="faq-4-icon" class="text-2xl font-bold">+</span>
+        </div>
+        <div id="faq-4" class="hidden mt-3 font-heading font-bold text-neutral-700 text-sm sm:text-base border-t-2 border-black pt-3">
+          Buy $MEOW, join the Telegram, make memes, and spread the gospel of the laser-eyed feline across Crypto Twitter.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-white border-t-4 border-black py-12 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      
+      <!-- Brand & Info -->
+      <div class="flex items-center gap-4 text-center md:text-left">
+        <div class="w-14 h-14 bg-brand-yellow rounded-full border-4 border-white flex items-center justify-center text-3xl">
+          🐱
+        </div>
+        <div>
+          <div class="font-display text-2xl text-brand-green tracking-wider">$MEOW COIN</div>
+          <div class="font-heading font-bold text-xs text-neutral-400">PUMP.FUN ORIGINAL FELINE REVOLUTION</div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="https://pump.fun" target="_blank" class="brutal-btn bg-brand-green text-black font-display text-xs px-4 py-2">
+          PUMP.FUN
+        </a>
+        <a href="https://dexscreener.com" target="_blank" class="brutal-btn bg-brand-cyan text-black font-display text-xs px-4 py-2">
+          DEXSCREENER
+        </a>
+        <a href="https://t.me" target="_blank" class="brutal-btn bg-[#229ED9] text-white font-display text-xs px-4 py-2">
+          TELEGRAM
+        </a>
+        <a href="https://x.com" target="_blank" class="brutal-btn bg-neutral-800 text-white font-display text-xs px-4 py-2">
+          𝕏 TWITTER
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Legal Degen Disclaimer -->
+    <div class="max-w-4xl mx-auto mt-10 pt-6 border-t border-neutral-800 text-center font-heading font-semibold text-xs text-neutral-500 space-y-2">
+      <p>
+        DISCLAIMER: $MEOW is a community memecoin created purely for entertainment, humor, and collective cat admiration. It has zero intrinsic value, no formal team, and no expectations of financial return. Cryptocurrencies are extremely volatile. Do not spend money you cannot afford to lose to stray cats.
+      </p>
+      <p class="text-neutral-600">
+        &copy; 2026 $MEOW Community. Built on Solana via Pump.fun. Zero Rights Reserved.
+      </p>
+    </div>
   </footer>
+
+  <!-- JAVASCRIPT: WEB AUDIO SYNTH & INTERACTIONS -->
+  <script>
+    // --- 1. WEB AUDIO SYNTHESIZER ---
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContextClass();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Synthesize hilarious retro sounds
+    function playSynthSound(type) {
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        if (type === 'meow') {
+          // Meow sweep: starts low, climbs to high frequency, then descends
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(450, now);
+          osc.frequency.exponentialRampToValueAtTime(950, now + 0.15);
+          osc.frequency.exponentialRampToValueAtTime(500, now + 0.35);
+
+          gain.gain.setValueAtTime(0.01, now);
+          gain.gain.linearRampToValueAtTime(0.3, now + 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.4);
+
+        } else if (type === 'pop') {
+          // Crisp pop/click sound for button copy
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(800, now);
+          osc.frequency.exponentialRampToValueAtTime(200, now + 0.08);
+
+          gain.gain.setValueAtTime(0.4, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.09);
+
+        } else if (type === 'hiss') {
+          // Noise hiss
+          const bufferSize = ctx.sampleRate * 0.25;
+          const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+          const output = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            output[i] = Math.random() * 2 - 1;
+          }
+          const whiteNoise = ctx.createBufferSource();
+          whiteNoise.buffer = buffer;
+
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'bandpass';
+          filter.frequency.value = 3200;
+          filter.Q.value = 2;
+
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+
+          whiteNoise.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+          whiteNoise.start(now);
+
+        } else if (type === 'purr') {
+          // Rhythmic low frequency flutter
+          const osc = ctx.createOscillator();
+          const lfo = ctx.createOscillator();
+          const lfoGain = ctx.createGain();
+          const gain = ctx.createGain();
+
+          osc.type = 'sawtooth';
+          osc.frequency.value = 65;
+
+          lfo.frequency.value = 22; // flutter
+          lfoGain.gain.value = 40;
+          lfo.connect(osc.frequency);
+
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          lfo.start(now);
+          osc.start(now);
+          lfo.stop(now + 0.5);
+          osc.stop(now + 0.5);
+
+        } else if (type === 'lambo') {
+          // Engine acceleration rev
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(80, now);
+          osc.frequency.exponentialRampToValueAtTime(360, now + 0.35);
+
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.42);
+
+        } else if (type === 'alarm') {
+          // Two-tone pump siren
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.setValueAtTime(900, now + 0.1);
+          osc.frequency.setValueAtTime(600, now + 0.2);
+          osc.frequency.setValueAtTime(900, now + 0.3);
+
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.42);
+
+        } else if (type === 'cha-ching') {
+          // Cash register ring
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1400, now);
+          osc.frequency.setValueAtTime(2200, now + 0.08);
+
+          gain.gain.setValueAtTime(0.3, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.4);
+        }
+      } catch (e) {
+        console.warn('Web Audio error:', e);
+      }
+    }
+
+    // --- 2. 1-CLICK CA COPY WITH TOAST & SOUND ---
+    function copyCA() {
+      const caText = document.getElementById('ca-text').innerText.trim();
+      navigator.clipboard.writeText(caText).then(() => {
+        // Audio feedback: Meow sound followed by pop!
+        playSynthSound('pop');
+        setTimeout(() => playSynthSound('meow'), 60);
+
+        // Visual feedback
+        const copyBtn = document.getElementById('copy-btn');
+        const copyLabel = document.getElementById('copy-label');
+        const copyIcon = document.getElementById('copy-icon');
+        const copyToast = document.getElementById('copy-toast');
+
+        copyBtn.classList.remove('bg-brand-yellow');
+        copyBtn.classList.add('bg-brand-green');
+        copyLabel.innerText = 'COPIED! 🔥';
+        copyIcon.innerText = '✅';
+        copyToast.classList.remove('hidden');
+
+        // Create floating paw emoji particles
+        createPawParticles(copyBtn);
+
+        setTimeout(() => {
+          copyBtn.classList.remove('bg-brand-green');
+          copyBtn.classList.add('bg-brand-yellow');
+          copyLabel.innerText = 'COPY CA';
+          copyIcon.innerText = '📋';
+          copyToast.classList.add('hidden');
+        }, 3000);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+
+    // Floating Paw Particles FX
+    function createPawParticles(targetElem) {
+      const rect = targetElem.getBoundingClientRect();
+      const emojis = ['🐾', '🐱', '🚀', '🔥', '✨'];
+      for (let i = 0; i < 6; i++) {
+        const span = document.createElement('span');
+        span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        span.style.position = 'fixed';
+        span.style.left = (rect.left + rect.width / 2 + (Math.random() * 60 - 30)) + 'px';
+        span.style.top = (rect.top + (Math.random() * 20 - 10)) + 'px';
+        span.style.fontSize = '24px';
+        span.style.pointerEvents = 'none';
+        span.style.zIndex = '9999';
+        span.style.transition = 'all 0.8s cubic-bezier(0.2, 0.9, 0.3, 1)';
+        document.body.appendChild(span);
+
+        requestAnimationFrame(() => {
+          span.style.transform = `translate(${Math.random() * 100 - 50}px, -${60 + Math.random() * 50}px) scale(1.4)`;
+          span.style.opacity = '0';
+        });
+
+        setTimeout(() => span.remove(), 900);
+      }
+    }
+
+    // --- 3. HERO CAT LASER TOGGLE ---
+    function triggerMeowHero() {
+      playSynthSound('meow');
+      const lasers = document.getElementById('laser-beams');
+      if (lasers) {
+        lasers.classList.remove('opacity-0');
+        lasers.classList.add('opacity-100');
+        setTimeout(() => {
+          lasers.classList.remove('opacity-100');
+          lasers.classList.add('opacity-0');
+        }, 500);
+      }
+    }
+
+    // --- 4. BAG CALCULATOR MATH ---
+    function calculateBag() {
+      const input = parseFloat(document.getElementById('sol-calc-input').value) || 0;
+      // Assume current bonding curve price: 1 SOL = ~11,764,705 $MEOW
+      const tokens = Math.round(input * 11764705);
+      const feastCans = Math.round(input * 5882);
+
+      document.getElementById('meow-tokens-calc').innerText = tokens.toLocaleString() + ' $MEOW';
+      document.getElementById('catnip-calc').innerText = feastCans.toLocaleString() + ' Cans of Fancy Feast 🐟';
+    }
+
+    // --- 5. FAQ ACCORDION TOGGLE ---
+    function toggleFaq(id) {
+      const el = document.getElementById(id);
+      const icon = document.getElementById(id + '-icon');
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        if (icon) icon.innerText = '−';
+      } else {
+        el.classList.add('hidden');
+        if (icon) icon.innerText = '+';
+      }
+      playSynthSound('pop');
+    }
+  </script>
 </body>
 </html>
